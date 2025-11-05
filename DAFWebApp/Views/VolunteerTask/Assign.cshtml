@@ -1,0 +1,11 @@
+﻿@model DAFWebApp.Models.VolunteerTask
+<form asp-action="Assign" method="post">
+    <input type="hidden" asp-for="TaskId" />
+    <select name="volunteerId">
+        @foreach (var v in ViewBag.Volunteers)
+        {
+            <option value="@v.VolunteerId">@v.Name</option>
+        }
+    </select>
+    <button type="submit">Assign</button>
+</form>

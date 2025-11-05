@@ -1,0 +1,13 @@
+﻿@model DAFWebApp.Models.Incident
+
+<h2>Incident Details</h2>
+
+<p><strong>Title:</strong> @Model.Title</p>
+<p><strong>Description:</strong> @Model.Description</p>
+<p><strong>Location:</strong> @Model.Location</p>
+<p><strong>Date:</strong> @Model.DateReported</p>
+<p><strong>Reported By:</strong> @Model.User?.Name</p>
+
+<p>dadaman</p>
+
+<a asp-action="Index">Back to List</a>

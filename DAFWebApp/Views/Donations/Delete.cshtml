@@ -1,0 +1,23 @@
+﻿@model DAFWebApp.Models.Donation
+
+@{
+    ViewData["Title"] = "Delete Donation";
+}
+
+<h2>Delete Donation</h2>
+
+<h3>Are you sure you want to delete this donation?</h3>
+
+<div>
+    <strong>Resource Name:</strong> @Model.ResourceName <br />
+    <strong>Quantity:</strong> @Model.Quantity <br />
+    <strong>Donor Name:</strong> @Model.DonorName <br />
+    <strong>Date Donated:</strong> @Model.DateDonated.ToShortDateString() <br />
+    <strong>Contact Info:</strong> @Model.ContactInfo <br />
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="DonationId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

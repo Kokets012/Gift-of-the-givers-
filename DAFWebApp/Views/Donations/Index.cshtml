@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DAFWebApp.Models.Donation>
+
+@{
+    ViewData["Title"] = "Donations";
+}
+
+<div class="d-flex justify-content-between mb-3">
+    <h2>Donations</h2>
+    <a asp-action="Create" class="btn btn-success">+ Add Donation</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No donations recorded yet.</div>
+}
+else
+{
+<table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Resource Name</th>
+            <th>Quantity</th>
+            <th>Donor Name</th>
+            <th>Date Donated</th>
+            <th>Contact Info</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ResourceName</td>
+                <td>@item.Quantity</td>
+                <td>@item.DonorName</td>
+                <td>@item.DateDonated.ToShortDateString()</td>
+                <td>@item.ContactInfo</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.DonationId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
